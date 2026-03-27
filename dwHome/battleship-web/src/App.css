@@ -1,0 +1,149 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* App container */
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+/* Main content area */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Game info section */
+.game-info {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+}
+
+.game-info p {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+}
+
+/* Theme variations */
+.theme-classic {
+  --board-bg: #1e40af;
+  --cell-empty: #3b82f6;
+  --cell-ship: #1e3a8a;
+  --cell-hit: #ef4444;
+  --cell-miss: #94a3b8;
+}
+
+.theme-dark {
+  --board-bg: #1f2937;
+  --cell-empty: #374151;
+  --cell-ship: #6b7280;
+  --cell-hit: #f87171;
+  --cell-miss: #4b5563;
+}
+
+.theme-ocean {
+  --board-bg: #0c4a6e;
+  --cell-empty: #0891b2;
+  --cell-ship: #0e7490;
+  --cell-hit: #dc2626;
+  --cell-miss: #22d3ee;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0.5rem;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Button hover effects */
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
